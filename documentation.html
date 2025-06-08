@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Question Generation for CNN Topics</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Auto Question Generation for CNN Topics</h1>
+
+    <h3>Author</h3>
+    <p>© Akshara Plus.Org</p>
+
+    <h3>Published</h3>
+    <p>June 08, 2025</p>
+
+    <h2>Introduction to CNN Topics</h2>
+    <p>Convolutional Neural Networks (CNNs) are a class of deep neural networks widely used in image recognition, natural language processing, and other fields. This document focuses on generating questions to aid learning and teaching of CNN concepts. Before interacting with the question generation tool, users should understand the key topics covered:</p>
+    <ul>
+        <li><strong>Convolutional Layers</strong>: The core building blocks of CNNs, responsible for feature extraction through convolution operations.</li>
+        <li><strong>Pooling Layers</strong>: Layers that reduce spatial dimensions, helping to decrease computation and prevent overfitting.</li>
+        <li><strong>CNN Architectures</strong>: Famous architectures like LeNet and GoogLeNet, which introduced foundational concepts in CNN design.</li>
+        <li><strong>Techniques in CNNs</strong>: Methods like Dropout and Batch Normalization that improve training and performance.</li>
+    </ul>
+    <p>Our tool, developed at Akshara Plus.Org, generates questions on these topics to enhance understanding. The application provides a tutorial section to educate users on these concepts before they generate or answer questions.</p>
+
+    <h2>Convolutional Layers</h2>
+    <p>Convolutional layers apply convolution operations to input data using filters (or kernels) to extract features like edges or textures. A filter slides over the input, computing dot products to produce a feature map. Key concepts include:</p>
+    <ul>
+        <li><strong>Filter Size</strong>: The dimensions of the filter, e.g., 3x3.</li>
+        <li><strong>Stride</strong>: The step size of the filter’s movement, e.g., stride of 1 or 2.</li>
+        <li><strong>Padding</strong>: Adding zeros to the input border to control output size, e.g., "same" or "valid" padding.</li>
+    </ul>
+    <div class="figure">
+        <img src="images/figure1.png" alt="Convolutional Layer Diagram">
+        <p>Figure 1: Diagram showing a 3x3 filter sliding over an input image with a stride of 1, producing a feature map.</p>
+    </div>
+
+    <h2>Pooling Layers</h2>
+    <p>Pooling layers downsample feature maps, reducing their spatial dimensions while preserving important features. This reduction is a key property of CNNs, as it decreases the computational load, reduces memory usage, and helps prevent overfitting by introducing spatial invariance. For example, a 4x4 feature map can be reduced to a 2x2 feature map using a 2x2 pooling window, effectively halving the width and height, and thus reducing the total number of elements from 16 to 4—a 75% reduction in size.</p>
+    <p>Common types of pooling include:</p>
+    <ul>
+        <li><strong>Max Pooling</strong>: Takes the maximum value in a region, e.g., a 2x2 region. For a 2x2 region with values [4, 1, 3, 2], Max Pooling outputs 4 (the maximum).</li>
+        <li><strong>Average Pooling</strong>: Computes the average value in a region. For the same 2x2 region [4, 1, 3, 2], Average Pooling outputs (4+1+3+2)/4 = 2.5.</li>
+    </ul>
+    <p>The image-reducing property of pooling is crucial because it allows CNNs to focus on the most important features (e.g., edges or patterns) while discarding less relevant details, making the network more efficient and robust to small variations in the input (e.g., translations or distortions).</p>
+    <div class="figure">
+        <img src="images/figure2.png" alt="Max Pooling Diagram">
+        <p>Figure 2: Diagram illustrating the image-reducing property of Max Pooling. A 4x4 feature map with values [4, 1, 3, 2, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6] is reduced to a 2x2 output [4, 8, 9, 6] using a 2x2 Max Pooling window with a stride of 2, demonstrating a 75% reduction in size.</p>
+    </div>
+
+    <h2>CNN Architectures</h2>
+    <h3>LeNet</h3>
+    <p>LeNet, developed by Yann LeCun in 1998, was one of the first CNN architectures, designed for handwritten digit recognition (MNIST dataset). It consists of:</p>
+    <ul>
+        <li>Two convolutional layers with tanh activation.</li>
+        <li>Two pooling layers (average pooling).</li>
+        <li>Fully connected layers for classification.</li>
+    </ul>
+    <div class="figure">
+        <img src="images/figure3.png" alt="LeNet Architecture Diagram">
+        <p>Figure 3: Diagram of LeNet architecture, showing the sequence of convolutional, pooling, and fully connected layers.</p>
+    </div>
+
+    <h3>GoogLeNet</h3>
+    <p>GoogLeNet, introduced in 2014 by Google, won the ImageNet challenge with its Inception architecture. Key features include:</p>
+    <ul>
+        <li><strong>Inception Modules</strong>: Parallel convolutional operations with different filter sizes (1x1, 3x3, 5x5).</li>
+        <li>1x1 convolutions for dimensionality reduction.</li>
+        <li>Global average pooling to reduce fully connected layers.</li>
+    </ul>
+    <div class="figure">
+        <img src="images/figure4.png" alt="Inception Module Diagram">
+        <p>Figure 4: Diagram of an Inception Module in GoogLeNet, showing parallel convolutions and concatenation.</p>
+    </div>
+
+    <h2>Techniques in CNNs</h2>
+    <h3>Dropout</h3>
+    <p>Dropout is a regularization technique that prevents overfitting by randomly deactivating neurons during training. For example, with a dropout rate of 0.5, 50% of neurons are dropped in each iteration, forcing the network to learn robust features.</p>
+
+    <h3>Batch Normalization</h3>
+    <p>Batch Normalization normalizes layer inputs by adjusting and scaling activations, typically applied before activation functions. It reduces internal covariate shift, speeds up training, and allows higher learning rates.</p>
+
+    <h2>User Interface and Educational Approach</h2>
+    <p>The CNN Question Generator, developed at Akshara Plus.Org, uses a Streamlit-based web interface to educate users and generate questions. The UI is designed to ensure users, even those unfamiliar with CNNs, can learn and engage effectively. The approach includes:</p>
+    <ul>
+        <li><strong>Tutorial Section</strong>: A dedicated tab providing concise explanations of CNN concepts (e.g., layers, architectures, techniques) with key terms for quick reference. This section ensures users gain foundational knowledge before generating questions.</li>
+        <li><strong>Question Generation Interface</strong>: Users can select a topic (e.g., Convolutional Layers, LeNet), difficulty level (1–2 for True/False and MCQ), and question type (True/False, MCQ, Theory, or All). They can specify the number of questions, which are generated within a second.</li>
+        <li><strong>Practice Mode</strong>: A tab where users answer randomly generated questions, submit responses, and receive immediate feedback. This mode supports all question types and allows continuous practice.</li>
+        <li><strong>Pagination and Navigation</strong>: Generated questions are displayed with pagination (10 questions per page) and navigation buttons for ease of review.</li>
+    </ul>
+    <p>This approach ensures users first learn about CNN topics through the tutorial section, then generate or practice questions tailored to their needs, making the tool accessible and educational for all users.</p>
+
+    <h2>Auto-Question Generation for CNN Topics</h2>
+    <p>The CNN Question Generator creates limitless questions across topics like Convolutional Layers, Pooling Layers, CNN Architectures (LeNet, GoogLeNet), and Techniques (Dropout, Batch Normalization). Questions are categorized into True/False, MCQ, and Theory types. True/False and MCQ questions are limited to difficulty levels 1 (easiest) and 2 (slightly challenging), while Theory questions span levels 1 to 4. Below are the algorithms and examples for each type.</p>
+
+    <h3>True/False Questions</h3>
+    <p><strong>Generation Algorithm</strong>: A template-based approach uses a concept bank (e.g., {concept: "Convolutional Layer", fact: "extracts features using filters"}) and generates statements by affirming or negating facts. For Level 1, statements are straightforward; for Level 2, they require deeper conceptual clarity.</p>
+    <ul>
+        <li><strong>Level 1 (Basic Understanding)</strong>:
+            <div class="question">Q: A Convolutional Layer uses filters to extract features from input data. True or False?</div>
+            <div class="answer">A: True. Convolutional Layers apply convolution operations using filters to detect features like edges.</div>
+        </li>
+        <li><strong>Level 2 (Conceptual Clarity)</strong>:
+            <div class="question">Q: Max Pooling increases the spatial dimensions of a feature map. True or False?</div>
+            <div class="answer">A: False. Max Pooling reduces spatial dimensions by taking the maximum value in a region.</div>
+        </li>
+    </ul>
+
+    <h3>Multiple Choice Questions (MCQs)</h3>
+    <p><strong>Generation Algorithm</strong>: Templates select a topic and concept, then create a question with one correct answer and three distractors. Distractors are generated by altering the correct answer (e.g., changing numbers, concepts, or outcomes). Level 1 questions test basic understanding; Level 2 questions require distinguishing between similar concepts.</p>
+    <ul>
+        <li><strong>Level 1 (Basic Understanding)</strong>:
+            <div class="question">Q: What is the primary function of a Convolutional Layer in a CNN?<br>
+                a) Classify images directly<br>
+                b) Reduce the size of the input<br>
+                c) Extract features using filters<br>
+                d) Normalize the input data</div>
+            <div class="answer">A: c) Extract features using filters. This is the core role of Convolutional Layers.</div>
+        </li>
+        <li><strong>Level 2 (Conceptual Clarity)</strong>:
+            <div class="question">Q: What does a stride of 2 in a Convolutional Layer do?<br>
+                a) Increases the filter size by 2<br>
+                b) Moves the filter by 2 pixels at each step<br>
+                c) Doubles the number of filters<br>
+                d) Applies padding of 2 pixels</div>
+            <div class="answer">A: b) Moves the filter by 2 pixels at each step. Stride determines the step size of the filter.</div>
+        </li>
+    </ul>
+
+    <h3>Theory Questions</h3>
+    <p><strong>Generation Algorithm</strong>: Templates prompt users to explain concepts, compare methods, or describe applications. Difficulty increases with the depth of explanation required and the complexity of the topic, spanning Levels 1 to 4.</p>
+    <ul>
+        <li><strong>Level 1 (Basic Understanding)</strong>:
+            <div class="question">Q: What is the role of a Pooling Layer in a CNN?</div>
+            <div class="answer">A: A Pooling Layer reduces the spatial dimensions of feature maps, decreasing computational load and helping prevent overfitting by introducing spatial invariance.</div>
+        </li>
+        <li><strong>Level 2 (Conceptual Clarity)</strong>:
+            <div class="question">Q: Explain the difference between Max Pooling and Average Pooling in a CNN.</div>
+            <div class="answer">A: Max Pooling takes the maximum value in a region (e.g., 2x2), preserving the most prominent features, while Average Pooling computes the average value, smoothing the features. Max Pooling is more common as it better retains important features.</div>
+        </li>
+        <li><strong>Level 3 (Application)</strong>:
+            <div class="question">Q: Describe the role of Inception Modules in GoogLeNet.</div>
+            <div class="answer">A: Inception Modules in GoogLeNet perform parallel convolutional operations with different filter sizes (1x1, 3x3, 5x5) and pooling, then concatenate the results. This allows the network to capture features at multiple scales while reducing computational cost through 1x1 convolutions.</div>
+        </li>
+        <li><strong>Level 4 (Advanced Insight)</strong>:
+            <div class="question">Q: How does Batch Normalization improve CNN training, and why is it applied before the activation function?</div>
+            <div class="answer">A: Batch Normalization improves training by normalizing layer inputs, reducing internal covariate shift, and allowing higher learning rates, which speeds up convergence. It is applied before the activation function to ensure the normalized inputs are scaled appropriately before non-linearities are applied, maintaining stable gradients.</div>
+        </li>
+    </ul>
+
+    <h2>Incorporating Generative and Predictive AI</h2>
+    <p>Generative and predictive AI can enhance the CNN Question Generator in the following ways:</p>
+    <ul>
+        <li><strong>Generative AI for Question Creation</strong>: A generative model (e.g., GPT-based) can create novel question templates by learning from a dataset of CNN questions. For example, it can generate Theory questions like "Compare the impact of Dropout and Batch Normalization on CNN performance" by understanding CNN concepts and question patterns.</li>
+        <li><strong>Predictive AI for Difficulty Adjustment</strong>: A predictive model can analyze user responses to adjust question difficulty dynamically. For instance, if a user consistently answers Level 1 questions correctly, the model can predict readiness for Level 2 questions, ensuring personalized learning.</li>
+        <li><strong>Answer Generation</strong>: Generative AI can produce detailed answers for Theory questions, ensuring consistency and depth. For example, it can generate an answer for "Explain the role of 1x1 convolutions in GoogLeNet" by synthesizing information from CNN literature.</li>
+        <li><strong>Concept Expansion</strong>: Generative AI can expand the concept bank by identifying new CNN topics (e.g., attention mechanisms) and creating questions, ensuring the tool remains up-to-date with advancements in deep learning.</li>
+    </ul>
+    <p>Integrating these AI techniques can make the question generation process more dynamic, adaptive, and comprehensive, enhancing the educational value of the tool.</p>
+
+</body>
+</html>
